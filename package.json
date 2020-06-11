@@ -1,0 +1,19 @@
+{
+  "name": "alisupereso",
+  "version": "1.0.0",
+  "description": "",
+  "main": "back/index.js",
+  "scripts": {
+    "start": "electron .",
+    "package": "electron-packager . part --platform=darwin --arch=x64 "
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "electron": "^9.0.3"
+  },
+  "dependencies": {
+    "@alicloud/pop-core": "^1.7.9",
+    "@alicloud/videoenhan-2020-03-20": "^1.0.1"
+  }
+}

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="./vue.js"></script>
+    <script src="./element.js"></script>
+    <link rel="stylesheet" href="./element.css">
+    <style>
+        body {
+            background-color: #fff;
+        }
+    </style>
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <el-container>
+            <el-header>
+                随便写的不用报错，直接去Git提Pr谢谢
+            </el-header>
+            <el-main>
+                <el-form ref="form" :model="form" label-width="100px">
+                    <el-form-item label="账号信息">
+                        <el-col :span="11">
+                            <el-input v-model="form.accessKeyId" placeholder="AccessKeyId"></el-input>
+                        </el-col>
+                        <el-col class="line" :span="2">&nbsp;</el-col>
+                        <el-col :span="11">
+                            <el-input v-model="form.accessKeySecret" placeholder="AccessKeySecret"></el-input>
+                        </el-col>
+                    </el-form-item>
+                    <el-form-item label="视频信息">
+                        <el-input v-model="form.url" placeholder="视频地址"></el-input>
+                    </el-form-item>
+                    <el-form-item label="比特率倍数">
+                        <el-slider v-model="form.rate" :max="100" :min="2"></el-slider>
+                    </el-form-item>
+                    <el-form-item>
+                        <el-button type="primary" @click="onSubmit" :disabled="form.disabled">立即创建</el-button>
+                    </el-form-item>
+                </el-form>
+                <el-card class="box-card">
+                    <div slot="header" class="clearfix">
+                      <span>当前任务:{{id}}</span>
+                      <el-alert v-if="error"
+                        :title="error"
+                        type="error"
+                        >
+                        </el-alert>
+                    </div>
+                    <div class="text item">
+                        <p>任务：{{task.id}}</p>
+                        <p>状态：{{task.status}}</p>
+                        <el-input v-model="task.url" placeholder="执行结果"></el-input>
+                    </div>
+                  </el-card>
+            </el-main>
+          </el-container>
+        
+    </div>
+    <script src="./index.js"></script>
+</body>
+</html>
