@@ -22,7 +22,10 @@ function onSuccess(event, arg) {
 
 function onError(event, arg) {
     var res = JSON.parse(arg);
-    console.log(res)
+    app.id = ""
+    localStorage.setItem("superResolveVideoCurrentRequest", "")
+    app.form.disabled = false
+    app.error = res.Data.JobId + ": " +res.Data.ErrorMessage
 }
 
 function interval() {
