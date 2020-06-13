@@ -15,49 +15,69 @@
 </head>
 <body>
     <div id="app">
-        <el-container>
+        <section class="el-container is-vertical">
             <el-header>
                 服务是阿里云，服务端问题找阿里云反馈。随便写的不用报错，直接去Git提Pr，谢谢 https://github.com/yqjiang/alisupres 顺便关注下B站@暗切线。有啥新东西专栏见。
             </el-header>
-            <el-main>
+            <main class="el-main">
                 <el-form ref="form" :model="form" label-width="100px">
-                    <el-form-item label="账号信息">
-                        <el-col :span="11">
-                            <el-input v-model="form.accessKeyId" placeholder="AccessKeyId"></el-input>
-                        </el-col>
-                        <el-col class="line" :span="2">&nbsp;</el-col>
-                        <el-col :span="11">
-                            <el-input v-model="form.accessKeySecret" placeholder="AccessKeySecret"></el-input>
-                        </el-col>
-                    </el-form-item>
-                    <el-form-item label="视频信息">
-                        <el-input v-model="form.url" placeholder="视频地址"></el-input>
-                    </el-form-item>
+                    <div class="el-form-item"><label class="el-form-item__label" style="width: 100px;">账号信息</label>
+                        <div class="el-form-item__content" style="margin-left: 100px;">
+                            <div class="el-col el-col-11">
+                                <div class="el-input">
+                                    <input type="text" autocomplete="off" placeholder="AccessKeyId"
+                                        class="el-input__inner" v-model="form.AccessKeyId">
+                                </div>
+                            </div>
+                            <div class="line el-col el-col-2">&nbsp;</div>
+                            <div class="el-col el-col-11">
+                                <div class="el-input">
+                                    <input type="text" autocomplete="off" placeholder="AccessKeySecret"
+                                        class="el-input__inner" v-model="form.AccessKeySecret">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="el-form-item"><label class="el-form-item__label" style="width: 100px;">视频信息</label>
+                        <div class="el-form-item__content" style="margin-left: 100px;">
+                            <div class="el-input">
+                                <input type="text" autocomplete="off" placeholder="视频地址" class="el-input__inner" v-model="form.url">
+                            </div>
+                        </div>
+                    </div>
                     <el-form-item label="比特率倍数">
                         <el-slider v-model="form.rate" :max="100" :min="2"></el-slider>
                     </el-form-item>
-                    <el-form-item>
-                        <el-button type="primary" @click="onSubmit" :disabled="form.disabled">立即创建</el-button>
-                    </el-form-item>
+                    <div class="el-form-item">
+                        <div class="el-form-item__content" style="margin-left: 100px;"><button type="button"
+                                class="el-button el-button--primary" @click="onSubmit" :disabled="form.disabled">
+                                <span>立即创建</span></button>
+                        </div>
+                    </div>
                 </el-form>
-                <el-card class="box-card">
-                    <div slot="header" class="clearfix">
-                      <span>当前任务:{{id}}</span>
-                      <el-alert v-if="error"
-                        :title="error"
-                        type="error"
+                  <div class="el-card box-card is-always-shadow">
+                    <div class="el-card__header">
+                        <div class="clearfix">
+                            <span>当前任务:{{id}}</span>
+                            <el-alert v-if="error"
+                                title="error"
+                                type="error"
                         >
                         </el-alert>
+                        </div>
                     </div>
-                    <div class="text item">
-                        <p>任务：{{task.id}}</p>
-                        <p>状态：{{task.status}}</p>
-                        <el-input v-model="task.url" placeholder="执行结果"></el-input>
+                    <div class="el-card__body">
+                        <div class="text item">
+                            <p>任务：{{task.id}}</p>
+                            <p>状态：{{task.status}}</p>
+                            <div class="el-input">
+                                <input type="text" autocomplete="off" placeholder="执行结果" class="el-input__inner" v-model="task.url">
+                            </div>
+                        </div>
                     </div>
-                  </el-card>
-            </el-main>
-          </el-container>
-        
+                </div>
+            </main>
+        </section>
     </div>
     <script src="./index.js"></script>
 </body>
