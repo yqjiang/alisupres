@@ -106,6 +106,10 @@ var app = new Vue({
     el: '#app',
     data,
     mounted,
+    created() {
+        document.querySelector('#app_mask').style = 'display:none';
+        document.querySelector('#app').style = 'visibility: visible;';
+    },
     methods: {
       onSubmit
     }
