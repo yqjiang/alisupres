@@ -14,7 +14,7 @@
     <title>Document</title>
 </head>
 <body>
-    <div id="app">
+    <div id="app" style="visibility: hidden;">
         <section class="el-container is-vertical">
             <el-header>
                 服务是阿里云，服务端问题找阿里云反馈。随便写的不用报错，直接去Git提Pr，谢谢 https://github.com/yqjiang/alisupres 顺便关注下B站@暗切线。有啥新东西专栏见。
@@ -78,6 +78,11 @@
                 </div>
             </main>
         </section>
+    </div>
+    <div id="app_mask" style="position:fixed;top:0;left:0;right:0;bottom:0">
+        <span style="position: absolute; top:50%;left:50%;height:32px;width: 32px;margin:-16px 0 0 -16px;">
+            <i class="el-icon-loading"></i>
+        </span>
     </div>
     <script src="./index.js"></script>
 </body>
